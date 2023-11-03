@@ -7,113 +7,73 @@
 
 import SwiftUI
 
-class SchoolStore: ObservableObject {
-    @Published var schools : [School]
-    
-    init(schools: [School] = []) {
-        self.schools = schools
-    }
-    
-    func loadData() async {
-      guard let url = URL(string: hSchoolUrl) else {
-        print("Invalid URL")
-        return
-      }
-      
-      do {
-      let (data, meta) = try await URLSession.shared.data(from: url)
-      print(meta)
-      if let decodedResponse = try? JSONDecoder().decode(schoolData.self, from: data) {
-          schools = decodedResponse.dataSearch.content
-        }
-      } catch {
-        print("Invalid data")
-      }
-    }
-}
-
-
+import SwiftUI
 
 struct ContentView: View {
     
-    @State var results = [School]()
-    @StateObject var result2 = SchoolStore()
+    @StateObject var schoolStore = SchoolStore(schools: schoolDatas)
     @State private var stackPath = NavigationPath()
+    @EnvironmentObject var vm: SchoolStore
     
     var body: some View {
         NavigationStack(path: $stackPath) {
             List {
-                ForEach(0..<results.count, id: \.self){ i in
-                    NavigationLink (value: i){
-                        ExtractedView(school: result2.schools[i])
+                ForEach (0..<schoolStore.schools.count, id: \.self) { i in
+                    NavigationLink(value: i) {
+                        ListCell(school: schoolStore.schools[i])
                     }
                 }
-                .onDelete(perform: deleteitems)
+                .onDelete(perform: deleteItems) // 이 부분이 올바르게 수정됨
                 .onMove(perform: moveItems)
-                
-            }
-            .task {
-                await loadData()
             }
             .navigationDestination(for: Int.self) { i in
-                schoolDetail(selectedSchool: result2.schools[i])
+                SchoolDeatilView(selectedSchool: schoolStore.schools[i])
             }
             .navigationDestination(for: String.self) { _ in
-                addSchool(results2: self.result2 , path: $stackPath)
+                AddNewSchool(schoolStore: self.schoolStore, path: $stackPath)
             }
-            .navigationTitle(Text("High Schools"))
+            .navigationTitle("학교 정보")
             .toolbar {
+                
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
-                    NavigationLink(value: "학교 추가") {
-                        Text("Add")
+                    NavigationLink(value: "학교추가") {
+                        Text("추가")
                     }
                 }
+                
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                     EditButton()
                 }
             }
+            
         }
+    }
+    
+    
+    func deleteItems(at offsets: IndexSet) {
+        schoolStore.schools.remove(atOffsets: offsets)
+    }
+    
+    func moveItems(from source: IndexSet, to destination: Int) {
+        schoolStore.schools.move(fromOffsets: source, toOffset: destination)
+    }
+    
+    struct ListCell: View {
         
-    }
-    
-    
-    func deleteitems(at offsets: IndexSet ) {
-        result2.schools.remove(atOffsets: offsets)
-    }
-    
-    func moveItems(from source: IndexSet, to destinateion: Int) {
-        result2.schools.move(fromOffsets: source, toOffset: destinateion)
-    }
-  
-  func loadData() async {
-    guard let url = URL(string: hSchoolUrl) else {
-      print("Invalid URL")
-      return
-    }
-    
-    do {
-    let (data, meta) = try await URLSession.shared.data(from: url)
-    print(meta)
-    if let decodedResponse = try? JSONDecoder().decode(schoolData.self, from: data) {
-        results = decodedResponse.dataSearch.content
-        result2.schools = decodedResponse.dataSearch.content
-      }
-    } catch {
-      print("Invalid data")
-    }
-  }
-}
-
-struct ExtractedView: View {
-    var school: School
-    
-    var body: some View {
-        HStack {
-            Image("\(school.schoolName)")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-            Text(school.schoolName)
-                .font(.headline)
+        var school: School
+        
+        var body: some View {
+            HStack {
+                Image(school.img ?? "lion")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 150,height: 40)
+                Spacer()
+                Text(school.schoolName)
+            }
         }
     }
+}
+#Preview {
+    ContentView()
 }
