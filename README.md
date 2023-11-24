@@ -1,7 +1,10 @@
 # TIL
 ## Swift
 
+
 ## Git
+- [DS_Store 삭제](https://github.com/RapidSloth/TIL/blob/main/Git/DSStore.md)
+
 
 ## 기타
 
