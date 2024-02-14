@@ -4,8 +4,15 @@
 
 TabView 사용 시 하단의 탭바가 투명해지는 현상이 존재한다. 해당 현상이 발생하는 이유는 
 
-1. iOS15로 넘어오면서 네비게이션바나 탭바가 있는 뷰에서 화면 전환이 일어나면 배경이 투명해지고 border line이 사라지도록 변경되었다.  (https://developer.apple.com/forums/thread/682420)
-2. 탭바에 별도의 배경색을 지정했을 때 발생한다. (https://developer.apple.com/forums/thread/121799)
+1. iOS15로 넘어오면서 네비게이션바나 탭바가 있는 뷰에서 화면 전환이 일어나면 배경이 투명해지고 border line이 사라지도록 변경되었다.  
+
+   https://developer.apple.com/forums/thread/682420
+
+   https://stackoverflow.com/questions/69111478/ios-15-navigation-bar-transparent
+
+2. 탭바에 별도의 배경색을 지정했을 때 발생한다.
+
+    https://developer.apple.com/forums/thread/121799
 
 
 
