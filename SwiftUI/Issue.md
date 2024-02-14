@@ -13,7 +13,7 @@ UIKit과 SwiftUI의 해결 방법이 다르다. 아래의 방법들은 각각 IO
 
 
 
-- UIKit
+- UIKit  - func application(_ application: UIApplication, **didFinishLaunchingWithOptions** launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool  내부
 
 ```swift
 let appearance = UINavigationBarAppearance()
@@ -24,7 +24,7 @@ let appearance = UINavigationBarAppearance()
 
 
 
-- SwiftUI
+- SwiftUI - TabView 내부 요소들을 Group으로 묶고, Group의 modifier로 해당 코드들 추가
 
 ```swift
 Group {
