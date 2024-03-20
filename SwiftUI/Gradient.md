@@ -8,6 +8,7 @@ LinearGradient(colors: , startPoint: , endPoint: )
 
 
 ### 예시 - 전체배경에 적용
+![image](https://github.com/RapidSloth/TIL/assets/144765545/67413123-db42-40e8-ad14-41715b8f8c5c)
 
 - 얘도 하나의 View이므로 그냥 배치 가능
 ```swift
@@ -21,6 +22,9 @@ var body: some View {
 ```
 
 ## Text
+
+![image](https://github.com/RapidSloth/TIL/assets/144765545/1e352553-422f-40bc-84b5-e004c97b24fd)
+
 ```swift
 Text("iOS")
 	.font(.system(size: 180))
@@ -35,6 +39,10 @@ Text("iOS")
 ```
 
 ## Circle
+
+![image](https://github.com/RapidSloth/TIL/assets/144765545/d7b65e14-73e0-4192-a3ed-4b4ff2c2c068)
+
+
 ```swift
 Circle()
 	.fill(
