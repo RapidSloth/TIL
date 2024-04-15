@@ -1,13 +1,13 @@
 # TIL
-
-## SwiftUI
+## iOS
+### SwiftUI
 
 - [view 숨기기 (토글)](https://github.com/RapidSloth/TIL/blob/main/SwiftUI/ToggleView.md)
 - [GIF]()
 
 
 
-## UIKit
+### UIKit
 
 
 
