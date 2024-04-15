@@ -4,14 +4,17 @@
 
 - [view 숨기기 (토글)](https://github.com/RapidSloth/TIL/blob/main/SwiftUI/ToggleView.md)
 - [GIF]()
-
-
+- [Alert]()
+- [Gesture]()
+- [Sheet]()
+- [Gradient]()
 
 ### UIKit
 
-
-
-
+### 기타
+- [HIG](https://github.com/RapidSloth/TIL/blob/main/Design/HIG.md)
+- [날짜와 시간 다루기]()
+- 
 
 ## Git
 
@@ -19,10 +22,6 @@
 - [DS_Store 삭제](https://github.com/RapidSloth/TIL/blob/main/Git/DSStore.md)
 
 
-## 기타
 
-### 디자인
-- [HIG](https://github.com/RapidSloth/TIL/blob/main/Design/HIG.md)
-
-### Firebase
+## Firebase
 - [Firestore](https://github.com/RapidSloth/TIL/blob/main/Firebase/Firestore.md)
