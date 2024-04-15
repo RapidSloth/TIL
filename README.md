@@ -1,9 +1,4 @@
 # TIL
-## Swift 문법
-
-
-
-
 
 ## SwiftUI
 
