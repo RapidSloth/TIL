@@ -8,13 +8,18 @@
 - [Gesture]()
 - [Sheet]()
 - [Gradient]()
+- [Text]()
+- [Link]()
+- [List]()
+
 
 ### UIKit
 
 ### 기타
 - [HIG](https://github.com/RapidSloth/TIL/blob/main/Design/HIG.md)
+- [UX]()
 - [날짜와 시간 다루기]()
-- 
+- [네트워킹]()
 
 ## Git
 
